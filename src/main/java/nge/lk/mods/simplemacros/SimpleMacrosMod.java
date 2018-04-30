@@ -165,7 +165,7 @@ public class SimpleMacrosMod {
             if (Keyboard.isKeyDown(macro.getMacroKey())) {
                 if (!macro.isActive()) {
                     macro.setActive(true);
-                    long target = tickCounter + macro.getDelay() / 50;
+                    long target = tickCounter + 1;
                     for (final String command : macro.getCommands()) {
                         if (!command.isEmpty()) {
                             tickRunnables.add(new TickRunnable(target,
