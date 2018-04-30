@@ -144,7 +144,7 @@ public class SimpleMacrosMod {
             } else {
                 msg = "Macro group '" + activeGroup + "' is now active.";
             }
-            Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new TextComponentString(msg));
+            Minecraft.getMinecraft().ingameGUI.getChatGUI().printChatMessage(new TextComponentString(msg));
         }
 
         final boolean ctrl = Keyboard.isKeyDown(Keyboard.KEY_LCONTROL) || Keyboard.isKeyDown(Keyboard.KEY_RCONTROL);
@@ -169,7 +169,7 @@ public class SimpleMacrosMod {
                     for (final String command : macro.getCommands()) {
                         if (!command.isEmpty()) {
                             tickRunnables.add(new TickRunnable(target,
-                                    () -> Minecraft.getMinecraft().thePlayer.sendChatMessage(command)));
+                                    () -> Minecraft.getMinecraft().player.sendChatMessage(command)));
                         }
                         target += macro.getDelay() / 50;
                     }

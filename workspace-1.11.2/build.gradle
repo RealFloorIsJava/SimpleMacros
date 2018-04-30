@@ -17,7 +17,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "1.2.0-1.10.2.2511"
+version = "1.2.0-1.11.2.2588"
 group = "nge.lk.mods.simplemacros"
 archivesBaseName = "simplemacros"
 
@@ -27,10 +27,10 @@ compileJava {
 }
 
 minecraft {
-    version = "1.10.2-12.18.3.2511"
+    version = "1.11.2-13.20.1.2588"
     runDir = "run"
 
-    mappings = "snapshot_20161111"
+    mappings = "snapshot_20161220"
 
     replace "@VERSION@", project.version
     replaceIn "SimpleMacrosMod.java"
@@ -41,7 +41,7 @@ repositories {
 }
 
 dependencies {
-    compile 'nge.lk.mods.commonlib:commonlib:1.0.0-1.10.2.2511'
+    compile 'nge.lk.mods.commonlib:commonlib:1.0.0-1.11.2.2588'
 }
 
 processResources {
@@ -68,7 +68,7 @@ tasks.build.dependsOn reobfShadowJar
 shadowJar {
     classifier = null
     dependencies {
-        include(dependency('nge.lk.mods.commonlib:commonlib:1.0.0-1.10.2.2511'))
+        include(dependency('nge.lk.mods.commonlib:commonlib:1.0.0-1.11.2.2588'))
     }
     exclude 'dummyThing'
     relocate 'nge.lk.mods.commonlib', 'nge.lk.mods.simplemacros.common'
