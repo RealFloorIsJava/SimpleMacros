@@ -1,0 +1,16 @@
+[
+{
+  "modid": "simplemacros",
+  "name": "SimpleMacros",
+  "description": "Adds chat macros",
+  "version": "v1.0.0",
+  "mcversion": "1.8.9",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["LordKorea"],
+  "credits": "Feature Ideas by Rinjani",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
