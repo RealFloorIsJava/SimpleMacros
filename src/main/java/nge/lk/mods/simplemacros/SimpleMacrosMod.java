@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -144,7 +144,7 @@ public class SimpleMacrosMod {
             } else {
                 msg = "Macro group '" + activeGroup + "' is now active.";
             }
-            Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText(msg));
+            Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new TextComponentString(msg));
         }
 
         final boolean ctrl = Keyboard.isKeyDown(Keyboard.KEY_LCONTROL) || Keyboard.isKeyDown(Keyboard.KEY_RCONTROL);

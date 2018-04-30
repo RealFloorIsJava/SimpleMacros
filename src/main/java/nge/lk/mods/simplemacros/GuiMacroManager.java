@@ -258,7 +258,7 @@ public class GuiMacroManager extends GuiFactory implements Consumer<ButtonElemen
         final String command = macro.getCommands().get(commandPointer);
         commandInput.getTextField().setText(command);
         commandInput.getTextField().setCursorPosition(0);
-        delaySlider.getSlider().func_175218_a(macro.getDelay() / 50, false);
+        delaySlider.getSlider().setSliderValue(macro.getDelay() / 50, false);
         groupInput.getTextField().setText(macro.getGroup());
         updateCaptions();
     }
