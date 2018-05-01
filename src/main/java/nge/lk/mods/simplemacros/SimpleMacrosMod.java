@@ -207,7 +207,7 @@ public class SimpleMacrosMod {
         public int compareTo(final Object o) {
             assert o instanceof TickRunnable;
             final TickRunnable other = (TickRunnable) o;
-            return Long.compare(tick, ((TickRunnable) o).tick);
+            return Long.compare(tick, other.tick);
         }
     }
 }
