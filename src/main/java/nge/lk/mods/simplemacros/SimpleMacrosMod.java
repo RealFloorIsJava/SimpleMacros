@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -78,6 +79,19 @@ public class SimpleMacrosMod {
      * Counts the ticks, for decreasing click speeds.
      */
     private long tickCounter;
+
+    /**
+     * Sends a chat message.
+     *
+     * @param message The message.
+     */
+    private static void sendChat(final String message) {
+        final String res = ForgeEventFactory.onClientSendMessage(message);
+        if (res.isEmpty()) {
+            return;
+        }
+        Minecraft.getMinecraft().player.sendChatMessage(res);
+    }
 
     @EventHandler
     public void onPreInit(final FMLPreInitializationEvent event) {
@@ -169,7 +183,7 @@ public class SimpleMacrosMod {
                     for (final String command : macro.getCommands()) {
                         if (!command.isEmpty()) {
                             tickRunnables.add(new TickRunnable(target,
-                                    () -> Minecraft.getMinecraft().player.sendChatMessage(command)));
+                                    () -> sendChat(command)));
                         }
                         target += macro.getDelay() / 50;
                     }
@@ -207,7 +221,7 @@ public class SimpleMacrosMod {
         public int compareTo(final Object o) {
             assert o instanceof TickRunnable;
             final TickRunnable other = (TickRunnable) o;
-            return Long.compare(tick, ((TickRunnable) o).tick);
+            return Long.compare(tick, other.tick);
         }
     }
 }
