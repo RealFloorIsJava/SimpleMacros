@@ -3,7 +3,7 @@
   "modid": "simplemacros",
   "name": "SimpleMacros",
   "description": "Adds chat macros",
-  "version": "v1.0.0",
+  "version": "v1.0.1",
   "mcversion": "1.10.2",
   "url": "",
   "updateUrl": "",
